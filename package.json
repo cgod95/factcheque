@@ -1,0 +1,31 @@
+{
+  "name": "factcheque",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Factcheque — an interactive case file mapping money, foreign influence, and UK legislation. v1: the Representation of the People Bill (2024–26).",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "generate": "node scripts/generate-bill.mjs"
+  },
+  "dependencies": {
+    "d3-sankey": "^0.12.3",
+    "d3-shape": "^3.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/d3-sankey": "^0.12.4",
+    "@types/d3-shape": "^3.1.7",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^4.4.1",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.7.3",
+    "vite": "^6.3.5"
+  }
+}

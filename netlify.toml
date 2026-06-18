@@ -1,0 +1,8 @@
+# Netlify build config. Hash-based routing means there are no path-based deep
+# links, so no SPA redirect rules are needed — every URL is served by index.html.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
