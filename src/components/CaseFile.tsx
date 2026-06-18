@@ -6,8 +6,11 @@ import { ClaimCard } from './ClaimCard'
 import { SourceBadge } from './SourceBadge'
 import { Timeline } from './views/Timeline'
 import { MoneyFlowSankey } from './views/MoneyFlowSankey'
+import { ScaleOfMoney } from './views/ScaleOfMoney'
 import { LoopholeExplainer } from './views/LoopholeExplainer'
+import { LoopholeNetwork } from './views/LoopholeNetwork'
 import { PositionsTracker } from './views/PositionsTracker'
+import { DataAppendix } from './views/DataAppendix'
 import { ThemeToggle } from './ThemeToggle'
 import { Reveal } from './Reveal'
 import { ArrowRightIcon } from './icons'
@@ -17,6 +20,7 @@ const NAV = [
   { id: 'money-flows', label: 'Money flows' },
   { id: 'the-open-loophole', label: 'The open loophole' },
   { id: 'positions', label: 'Positions' },
+  { id: 'data-sources', label: 'Data & sources' },
 ] as const
 
 interface SectionProps {
@@ -247,6 +251,20 @@ export function CaseFile({ bill }: { bill: Bill }) {
           description="Four routes carry money toward UK parties. This bill closes one, narrows several, and leaves one open depending on the test Parliament adopts."
         >
           <MoneyFlowSankey routes={bill.routes} />
+          {(() => {
+            const fig = bill.context.find((c) => c.id === 'ctx-41m')
+            return fig ? (
+              <div className="mt-10">
+                <ScaleOfMoney
+                  pct={32}
+                  donationCount={18}
+                  totalLabel="£41m"
+                  sourceCount={9}
+                  claim={fig.claim}
+                />
+              </div>
+            ) : null
+          })()}
         </Section>
 
         <Section
@@ -257,6 +275,9 @@ export function CaseFile({ bill }: { bill: Bill }) {
           description="An anatomy of the foreign-owned-UK-company route, presented as Democracy for Sale documented it. The structure is shown in the abstract; the specific findings are attributed."
         >
           <LoopholeExplainer loophole={bill.loophole} />
+          <div className="mt-10">
+            <LoopholeNetwork />
+          </div>
         </Section>
 
         <Section
@@ -267,6 +288,16 @@ export function CaseFile({ bill }: { bill: Bill }) {
           description="A neutral register of named actors' on-record positions on the bill. Sort by actor or date; filter by stance. It records positions only — it draws no inference."
         >
           <PositionsTracker actors={bill.actors} />
+        </Section>
+
+        <Section
+          id="data-sources"
+          index={5}
+          eyebrow="Methods"
+          title="Data & sources"
+          description="Every sourced statement in this case file, in one table — filter by fact tier, and download the lot as CSV or JSON. Nothing on the page is asserted without a source."
+        >
+          <DataAppendix bill={bill} />
         </Section>
       </main>
 
