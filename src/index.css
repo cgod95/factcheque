@@ -150,6 +150,24 @@
     border-radius: 9999px;
   }
 
+  /* Line-draw: faint flows that draw themselves in on load. Visible (static)
+     when motion is reduced. */
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes flow-draw {
+      from {
+        stroke-dashoffset: 1;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    .flow-draw {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: flow-draw 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+  }
+
   /* Scroll-reveal: hidden until the IntersectionObserver adds .is-visible.
      Falls back to fully visible when motion is reduced. */
   .reveal {

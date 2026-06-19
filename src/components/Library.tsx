@@ -4,6 +4,8 @@ import { LAST_VERIFIED } from '@/data/representation-of-the-people-bill'
 import { tierMeta, tierOrder } from '@/lib/meta'
 import { ThemeToggle } from './ThemeToggle'
 import { Reveal } from './Reveal'
+import { BrandMark } from './BrandMark'
+import { HeroFlow } from './HeroFlow'
 import { ArrowRightIcon, ExternalLinkIcon } from './icons'
 
 /**
@@ -21,8 +23,12 @@ export function Library() {
       {/* Brand header */}
       <header className="border-b border-line">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-          <div className="flex items-baseline gap-3">
-            <a href="#/" className="font-display text-xl font-semibold tracking-tight text-ink">
+          <div className="flex items-center gap-3">
+            <a
+              href="#/"
+              className="inline-flex items-center gap-2 font-display text-xl font-semibold tracking-tight text-ink"
+            >
+              <BrandMark className="h-7 w-7" />
               Factcheque
             </a>
             <span className="hidden text-xs text-muted sm:inline">
@@ -34,8 +40,9 @@ export function Library() {
       </header>
 
       {/* Hero */}
-      <section className="border-b border-line bg-gradient-to-b from-accent-soft/50 to-paper">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+      <section className="relative overflow-hidden border-b border-line bg-gradient-to-b from-accent-soft/50 to-paper">
+        <HeroFlow className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.10] dark:opacity-[0.18]" />
+        <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-wide text-accent">
               UK · Money · Influence · Legislation

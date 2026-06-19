@@ -13,6 +13,7 @@ import { PositionsTracker } from './views/PositionsTracker'
 import { DataAppendix } from './views/DataAppendix'
 import { ThemeToggle } from './ThemeToggle'
 import { Reveal } from './Reveal'
+import { BrandMark } from './BrandMark'
 import { ArrowRightIcon } from './icons'
 
 const NAV = [
@@ -102,11 +103,12 @@ export function CaseFile({ bill }: { bill: Bill }) {
       {/* Brand header */}
       <header className="border-b border-line">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-          <div className="flex items-baseline gap-3">
+          <div className="flex items-center gap-3">
             <a
               href="#/"
-              className="font-display text-xl font-semibold tracking-tight text-ink hover:text-accent-ink"
+              className="inline-flex items-center gap-2 font-display text-xl font-semibold tracking-tight text-ink hover:text-accent-ink"
             >
+              <BrandMark className="h-7 w-7" />
               Factcheque
             </a>
             <span className="hidden text-xs text-muted sm:inline">
