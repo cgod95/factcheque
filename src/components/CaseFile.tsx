@@ -115,7 +115,10 @@ export function CaseFile({ bill }: { bill: Bill }) {
               Money, influence &amp; the making of UK law
             </span>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
+            <a href="#/methodology" className="hidden text-xs font-medium text-muted hover:text-ink sm:inline">
+              Methodology
+            </a>
             <a
               href="#/"
               className="inline-flex items-center gap-1.5 text-xs font-medium text-muted hover:text-ink"

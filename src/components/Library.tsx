@@ -35,7 +35,12 @@ export function Library() {
               Money, influence &amp; the making of UK law
             </span>
           </div>
-          <ThemeToggle />
+          <div className="flex items-center gap-4">
+            <a href="#/methodology" className="text-sm font-medium text-muted hover:text-ink">
+              Methodology
+            </a>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
@@ -221,6 +226,12 @@ export function Library() {
             asserts a causal link between a donation and a vote; named cases are attributed to the
             investigators who documented them.
           </p>
+          <a
+            href="#/methodology"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-on-invert underline decoration-on-invert/30 underline-offset-2 hover:decoration-on-invert"
+          >
+            Read the full methodology
+          </a>
 
           <h3 className="mt-8 text-[11px] font-semibold uppercase tracking-wide text-on-invert/50">
             The four fact tiers

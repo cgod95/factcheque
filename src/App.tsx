@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useHashRoute } from './lib/router'
 import { Library } from './components/Library'
 import { CaseFile } from './components/CaseFile'
+import { Methodology } from './components/Methodology'
 import { deepCaseFiles } from './data/registry'
 
 /**
@@ -17,6 +18,8 @@ export default function App() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [route])
+
+  if (route === '/methodology') return <Methodology />
 
   const billMatch = route.match(/^\/bill\/(.+)$/)
   if (billMatch) {
